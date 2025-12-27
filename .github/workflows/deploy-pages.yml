@@ -21,6 +21,8 @@ jobs:
         run: yarn
       - name: Build page
         run: yarn build
+      - name: Ensure .nojekyll exists
+        run: touch build/.nojekyll || echo "" > build/.nojekyll
       - name: Deploy to gh-pages
         uses: peaceiris/actions-gh-pages@v3
         with:
